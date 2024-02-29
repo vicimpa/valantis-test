@@ -60,6 +60,13 @@ export const App = () => {
           prev
         </button>
 
+        <button
+          disabled={loading || !hasNext}
+          onClick={setPage.bind(null, v => v + 1)}
+        >
+          next
+        </button>
+
         <div className="title">
           <h3>Page:</h3>
           <div>
@@ -70,13 +77,6 @@ export const App = () => {
             !loading && <h3>Items: {renderItems.length}</h3>
           }
         </div>
-
-        <button
-          disabled={loading || !hasNext}
-          onClick={setPage.bind(null, v => v + 1)}
-        >
-          next
-        </button>
       </div>
       <div className="content">
         {
