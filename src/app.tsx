@@ -3,10 +3,10 @@ import { createElement, useCallback, useEffect, useMemo, useRef, useState } from
 import { Api } from "./api";
 import { API_PASS, API_URL, SHOW_LIMIT } from "./config";
 import { useAsync } from "./hooks/useAsync";
-
-const api = new Api(API_URL, API_PASS);
+import { useClass } from "./hooks/useClass";
 
 export const App = () => {
+  const api = useClass(Api, API_URL, API_PASS);
   const pageRef = useRef<HTMLInputElement>(null);
   const [page, setPage] = useState(0);
 
